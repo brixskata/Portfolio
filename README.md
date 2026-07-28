@@ -1,5 +1,5 @@
 
 # React + TypeScript + Vite
 
-# Porfolio
+# Portfolio
 
