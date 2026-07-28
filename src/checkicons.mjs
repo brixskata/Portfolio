@@ -1,0 +1,14 @@
+import * as si from "react-icons/si";
+const keys = Object.keys(si);
+const csharp = keys.filter(k => k.toLowerCase().includes("csharp") || k.toLowerCase().includes("sharp"));
+const cpp = keys.filter(k => k.toLowerCase().includes("cplusplus") || k.toLowerCase().includes("cpp"));
+const php = keys.filter(k => k.toLowerCase().includes("php"));
+const dart = keys.filter(k => k.toLowerCase().includes("dart"));
+const mysql = keys.filter(k => k.toLowerCase().includes("mysql"));
+const mongo = keys.filter(k => k.toLowerCase().includes("mongo"));
+console.log("C#:", csharp.slice(0,5));
+console.log("C++:", cpp.slice(0,5));
+console.log("PHP:", php.slice(0,5));
+console.log("Dart:", dart.slice(0,5));
+console.log("MySQL:", mysql.slice(0,5));
+console.log("Mongo:", mongo.slice(0,5));
