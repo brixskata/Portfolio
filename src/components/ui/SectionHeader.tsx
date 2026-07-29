@@ -45,7 +45,7 @@ export default function SectionHeader({
       </h2>
       {subtitle && (
         <p
-          className="text-lg max-w-2xl leading-relaxed"
+          className={`text-lg max-w-2xl leading-relaxed ${center ? "mx-auto" : ""}`}
           style={{ color: "var(--text-body)" }}
         >
           {subtitle}

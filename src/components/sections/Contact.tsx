@@ -48,7 +48,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-          className="max-w-lg mx-auto"
+          className="-mt-6 max-w-lg mx-auto"
         >
           <div
             className="glass rounded-2xl p-8 relative overflow-hidden"
