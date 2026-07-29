@@ -14,7 +14,7 @@ export interface SkillCategory {
 export interface Project {
   title: string;
   description: string;
-  image: string;
+  image?: string;
   tech: string[];
   github?: string;
   live?: string;

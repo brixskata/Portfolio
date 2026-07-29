@@ -1,6 +1,16 @@
+import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import SectionHeader from "../ui/SectionHeader";
 import { timeline } from "../../data/certificates";
+
+const ABOUT_PHOTOS = [
+  "/gallery-2.webp",
+  "/about-graduation.webp",
+  "/gallery-3.webp",
+  "/gallery-4.webp",
+  "/gallery-5.webp",
+];
 
 /** Fade+slide-up animation triggered when element enters viewport */
 const fadeUp: Variants = {
@@ -13,6 +23,14 @@ const fadeUp: Variants = {
 };
 
 export default function About() {
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const currentPhoto = ABOUT_PHOTOS[photoIndex];
+
+  const showPreviousPhoto = () =>
+    setPhotoIndex((index) => (index - 1 + ABOUT_PHOTOS.length) % ABOUT_PHOTOS.length);
+  const showNextPhoto = () =>
+    setPhotoIndex((index) => (index + 1) % ABOUT_PHOTOS.length);
+
   return (
     <section id="about" className="section px-6">
       <div className="max-w-5xl mx-auto">
@@ -31,55 +49,60 @@ export default function About() {
             transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
             className="flex flex-col gap-6"
           >
-            {/* Avatar */}
-            <div className="relative w-fit">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden border-2 border-zinc-700 shadow-xl shadow-black/40">
-                <img
-                  src="/photo1.jpg"
-                  alt="Marion Brix Quiling"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Status dot */}
-              <div className="absolute -bottom-1 -right-1 flex items-center gap-1.5 bg-zinc-900 border border-zinc-700 rounded-full px-2.5 py-1">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs text-zinc-400 font-mono">Open to work</span>
+            <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-xl shadow-black/30">
+              <img
+                key={currentPhoto}
+                src={currentPhoto}
+                alt={`Marion Brix Quiling graduation portrait ${photoIndex + 1}`}
+                className="aspect-[4/5] w-full object-cover object-top"
+              />
+              <div className="flex items-center justify-between border-t border-zinc-800 bg-zinc-900 px-3 py-2">
+                <button
+                  type="button"
+                  onClick={showPreviousPhoto}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                  aria-label="Show previous photo"
+                >
+                  <HiChevronLeft size={19} />
+                </button>
+                <span className="text-xs font-mono text-zinc-500">
+                  {photoIndex + 1} / {ABOUT_PHOTOS.length}
+                </span>
+                <button
+                  type="button"
+                  onClick={showNextPhoto}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                  aria-label="Show next photo"
+                >
+                  <HiChevronRight size={19} />
+                </button>
               </div>
             </div>
 
             {/* Story */}
             <div className="space-y-4">
               <p className="text-zinc-400 leading-relaxed">
-                I'm <span className="text-white font-medium">Marion Brix Quiling</span>, a
-                passionate Junior Full Stack Developer from Quezon City, Philippines. I build
-                web and mobile applications that solve real problems with clean, maintainable
-                code.
-              </p>
-              <p className="text-zinc-500 leading-relaxed">
-                My journey started with curiosity about how websites work, and quickly evolved
-                into a love for crafting complete end-to-end experiences — from database design
-                to pixel-perfect UIs. I embrace AI-assisted development tools to work smarter
-                and ship faster.
-              </p>
-              <p className="text-zinc-500 leading-relaxed">
-                <span className="text-zinc-300">Career objective:</span> To join a team where
-                I can contribute meaningfully, grow rapidly, and build products that actually
-                matter to people.
+                I'm <span className="text-white font-medium">Marion Brix Quiling</span>, a fresh graduate with a Bachelor of Science in Information Technology who is passionate about web and mobile development. I enjoy creating modern applications that combine clean design, efficient code, and great user experiences. As I begin my professional career, I'm eager to keep learning new technologies, sharpen my skills, and contribute to meaningful projects.
+                
+
+
+
+
               </p>
             </div>
 
             {/* Quick stats */}
             <div className="grid grid-cols-3 gap-3 pt-2">
               {[
-                { label: "Projects", value: "3+" },
-                { label: "Tech Stack", value: "15+" },
-                { label: "Location", value: "QC, PH" },
+                { label: "Specialization", value: "Full Stack" },
+                { label: "Mobile Apps", value: "Flutter" },
+                { label: "Backend", value: "Laravel" },
               ].map((stat) => (
                 <div
                   key={stat.label}
                   className="glass rounded-xl p-3 text-center"
                 >
-                  <p className="text-xl font-bold text-white">{stat.value}</p>
+                  <p className="text-base font-bold leading-tight text-white sm:text-xl">{stat.value}</p>
                   <p className="text-xs text-zinc-500 mt-0.5">{stat.label}</p>
                 </div>
               ))}
@@ -89,7 +112,7 @@ export default function About() {
           {/* Right — timeline */}
           <div className="relative">
             <h3 className="text-sm font-mono text-zinc-500 tracking-widest uppercase mb-8">
-              Timeline
+              Journey
             </h3>
             {/* Vertical line */}
             <div className="absolute left-3 top-12 bottom-0 w-px bg-zinc-800" />

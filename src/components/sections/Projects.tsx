@@ -59,7 +59,16 @@ export default function Projects() {
                       (e.currentTarget as HTMLImageElement).style.display = "none";
                     }}
                   />
-                ) : null}
+                ) : (
+                  <div className="absolute inset-0 flex flex-col justify-end bg-[radial-gradient(circle_at_25%_20%,rgba(59,130,246,0.28),transparent_30%),linear-gradient(135deg,#18181b,#09090b)] p-6">
+                    <span className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-blue-300/80">
+                      Case study
+                    </span>
+                    <p className="text-2xl font-semibold tracking-tight text-white">
+                      {project.title}
+                    </p>
+                  </div>
+                )}
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent" />
                 {/* Featured badge */}

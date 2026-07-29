@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
-import { HiArrowUpRight } from "react-icons/hi2";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -16,7 +15,6 @@ const NAV_LINKS = [
  * - Scroll-aware background opacity
  * - Animated underline on hover
  * - Mobile menu with AnimatePresence
- * - Resume pill button
  */
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -48,7 +46,7 @@ export default function Navbar() {
           className={`max-w-5xl mx-auto px-5 py-3 rounded-2xl transition-all duration-300 ${
             scrolled
               ? "glass shadow-2xl shadow-black/20"
-              : "bg-transparent border border-transparent"
+              : "bg-zinc-950/85 border border-zinc-800/80 backdrop-blur-md"
           }`}
         >
           <div className="flex items-center justify-between">
@@ -80,20 +78,8 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Right side */}
-            <div className="flex items-center gap-3">
-              <motion.a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, y: -1 }}
-                whileTap={{ scale: 0.97 }}
-                className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-semibold border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-all duration-200"
-              >
-                Resume <HiArrowUpRight size={13} />
-              </motion.a>
-
-              {/* Mobile hamburger */}
+            {/* Mobile hamburger */}
+            <div>
               <button
                 onClick={() => setMenuOpen((o) => !o)}
                 className="md:hidden text-zinc-400 hover:text-white transition-colors p-1"
@@ -132,20 +118,6 @@ export default function Navbar() {
                   </button>
                 </motion.li>
               ))}
-              <motion.li
-                initial={{ opacity: 0, x: -12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: NAV_LINKS.length * 0.05 }}
-              >
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold bg-blue-500 text-white hover:bg-blue-400 transition-all"
-                >
-                  Resume <HiArrowUpRight size={13} />
-                </a>
-              </motion.li>
             </ul>
           </motion.div>
         )}

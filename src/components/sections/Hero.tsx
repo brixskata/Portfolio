@@ -1,169 +1,142 @@
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { HiArrowDown } from "react-icons/hi";
-import { HiArrowUpRight } from "react-icons/hi2";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa";
 
-
-const FLOATING_BADGES = [
-  { label: "React", delay: 0 },
-  { label: "Laravel", delay: 0.4 },
-  { label: "Flutter", delay: 0.8 },
-  { label: "MySQL", delay: 1.2 },
-  { label: "PHP", delay: 1.6 },
-  { label: "Git", delay: 2.0 },
-];
-
-const containerVariants: Variants = {
+const contentVariants: Variants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
-  },
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.4, 0.25, 1] },
+    transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] },
   },
 };
 
 export default function Hero() {
+  const prefersReducedMotion = useReducedMotion();
   const scrollToAbout = () =>
     document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-grid"
+      className="relative flex min-h-screen overflow-hidden bg-zinc-950"
+      aria-label="Introduction"
     >
-      {/* Glow orb */}
-      <div className="pointer-events-none absolute inset-0 flex items-start justify-center pt-20">
-        <div className="glow-orb w-[700px] h-[500px] opacity-70" />
-      </div>
+      <div
+        className="absolute inset-0 hidden bg-zinc-100 md:block [clip-path:polygon(0_0,56%_0,46%_100%,0_100%)]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 right-0 hidden h-[70%] w-[55%] bg-[radial-gradient(ellipse_at_bottom,rgba(37,99,235,0.22),transparent_68%)] md:block"
+        aria-hidden="true"
+      />
 
-      {/* Floating badges */}
-      <div className="pointer-events-none absolute inset-0 hidden lg:block">
-        {FLOATING_BADGES.map((b, i) => (
-          <motion.div
-            key={b.label}
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: [0, 1, 1, 0.8],
-              y: [0, -14, 0, -14, 0],
-            }}
-            transition={{
-              opacity: { delay: b.delay + 1, duration: 0.5 },
-              y: {
-                delay: b.delay + 1,
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              },
-            }}
-            className="absolute glass rounded-xl px-3 py-1.5 text-xs font-mono text-zinc-400"
-            style={{
-              top: `${18 + (i % 3) * 22}%`,
-              left: i < 3 ? `${6 + i * 4}%` : undefined,
-              right: i >= 3 ? `${6 + (i - 3) * 4}%` : undefined,
-            }}
-          >
-            {b.label}
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-6 pb-12 pt-28 md:px-10 md:pb-0 md:pt-24">
         <motion.div
-          variants={containerVariants}
+          variants={contentVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center"
+          className="z-10 flex max-w-xl flex-col justify-center text-center text-zinc-100 md:min-h-[calc(100vh-6rem)] md:w-[46%] md:text-left md:text-zinc-950"
         >
           <motion.p
             variants={itemVariants}
-            className="text-sm font-mono text-blue-400 tracking-widest uppercase mb-6"
+            className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-blue-400 md:text-blue-700"
           >
-            Hi, I'm
+            Hi, I&apos;m
           </motion.p>
-
           <motion.h1
             variants={itemVariants}
-            className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tight mb-4 gradient-text"
-            style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
+            className="text-5xl font-bold tracking-[-0.055em] sm:text-6xl lg:text-7xl"
           >
-            Marion Brix
+            Marion Brix Quiling
           </motion.h1>
-
-          <motion.div variants={itemVariants} className="mb-6">
-            <span className="text-2xl sm:text-3xl font-light text-zinc-400 tracking-wide">
-              Full Stack Developer
-            </span>
-          </motion.div>
-
           <motion.p
             variants={itemVariants}
-            className="text-base sm:text-lg text-zinc-500 max-w-xl leading-relaxed mb-10"
+            className="mt-3 text-base font-medium text-zinc-400 md:text-zinc-600 sm:text-lg"
           >
-            Building modern web &amp; mobile experiences with clean code,
-            thoughtful design, and an eye for detail. Based in{" "}
-            <span className="text-zinc-300">Quezon City, PH</span>.
+            Full Stack Developer / Mobile Developer
+          </motion.p>
+          <motion.p
+            variants={itemVariants}
+            className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-zinc-400 md:mx-0 md:text-zinc-600 sm:text-base"
+          >
+            I build modern web and mobile applications with clean, maintainable
+            code and thoughtful interfaces.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-3 mb-14"
+            className="mt-8 flex items-center justify-center gap-3 md:justify-start"
           >
-            <motion.button
-              onClick={scrollToAbout}
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold transition-all duration-200 shadow-lg shadow-blue-500/20 cursor-pointer"
-            >
-              View My Work
-              <HiArrowDown size={15} />
-            </motion.button>
-
             <motion.a
               href="https://github.com/brixskata"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white text-sm font-semibold transition-all duration-200 hover:bg-zinc-800/50"
+              aria-label="GitHub profile"
+              whileHover={prefersReducedMotion ? undefined : { y: -2 }}
+              whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-200 transition-colors hover:bg-zinc-800 md:border-zinc-300 md:bg-white md:text-zinc-800 md:hover:bg-zinc-200"
             >
-              <SiGithub size={15} />
-              GitHub
+              <SiGithub size={18} />
             </motion.a>
-
             <motion.a
               href="https://linkedin.com/in/marion-brix"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white text-sm font-semibold transition-all duration-200 hover:bg-zinc-800/50"
+              aria-label="LinkedIn profile"
+              whileHover={prefersReducedMotion ? undefined : { y: -2 }}
+              whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-200 transition-colors hover:bg-zinc-800 md:border-zinc-300 md:bg-white md:text-zinc-800 md:hover:bg-zinc-200"
             >
-              <FaLinkedinIn size={14} />
-              LinkedIn
-              <HiArrowUpRight size={12} />
+              <FaLinkedinIn size={16} />
             </motion.a>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="text-zinc-700 cursor-pointer"
-            onClick={scrollToAbout}
-          >
-            <HiArrowDown size={20} />
+            <motion.button
+              type="button"
+              onClick={scrollToAbout}
+              whileHover={prefersReducedMotion ? undefined : { y: -2 }}
+              whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-blue-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+            >
+              View work <HiArrowDown size={15} />
+            </motion.button>
           </motion.div>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 36 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+          className="relative z-10 mt-10 flex flex-1 items-end justify-center md:absolute md:bottom-0 md:right-0 md:mt-0 md:h-[88%] md:w-[59%] md:justify-end"
+        >
+          <img
+            src="/hero.png"
+            alt="Marion Brix Quiling"
+            className="h-auto max-h-[54vh] w-auto max-w-full object-contain object-bottom drop-shadow-[0_24px_28px_rgba(0,0,0,0.55)] md:max-h-none md:h-full"
+          />
+        </motion.div>
       </div>
+
+      <motion.button
+        type="button"
+        onClick={scrollToAbout}
+        aria-label="Scroll to about section"
+        animate={prefersReducedMotion ? undefined : { y: [0, 5, 0] }}
+        transition={
+          prefersReducedMotion
+            ? undefined
+            : { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+        }
+        className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-1 text-zinc-600 transition-colors hover:text-zinc-400 md:flex"
+      >
+        <span className="text-[10px] font-medium uppercase tracking-[0.2em]">Scroll</span>
+        <HiArrowDown size={17} />
+      </motion.button>
     </section>
   );
 }

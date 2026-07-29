@@ -19,11 +19,12 @@ import {
   SiGithub,
   SiPostman,
   SiFigma,
-  
   SiAnthropic,
+  SiCursor,
+  SiTestinglibrary,
 } from "react-icons/si";
 
-import { FaCss3Alt } from "react-icons/fa6";
+import { FaCss3Alt, FaRobot } from "react-icons/fa6";
 import SectionHeader from "../ui/SectionHeader";
 import { skillCategories } from "../../data/skills";
 
@@ -32,6 +33,7 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   SiJavascript: <SiJavascript />,
   SiPhp: <SiPhp />,
   SiCplusplus: <SiCplusplus />,
+  SiCsharp: <SiSharp />,
   SiSharp: <SiSharp />,
   SiDart: <SiDart />,
   SiHtml5: <SiHtml5 />,
@@ -47,19 +49,13 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   SiGithub: <SiGithub />,
   SiPostman: <SiPostman />,
   SiFigma: <SiFigma />,
- 
   SiAnthropic: <SiAnthropic />,
+  SiCursor: <SiCursor />,
+  SiOpenai: <FaRobot />,
+  SiTestinglibrary: <SiTestinglibrary />,
 };
 
-/** Category accent colors */
-const CATEGORY_COLORS: Record<string, string> = {
-  Languages: "#f59e0b",
-  Frameworks: "#3b82f6",
-  Databases: "#10b981",
-  Tools: "#8b5cf6",
-  "AI Tools": "#ec4899",
-  Concepts: "#06b6d4",
-};
+const TECH_ACCENT = "#3b82f6";
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
@@ -72,7 +68,6 @@ const cardVariants: Variants = {
 export default function Skills() {
   const [activeTab, setActiveTab] = useState(skillCategories[0].label);
   const active = skillCategories.find((c) => c.label === activeTab)!;
-  const accent = CATEGORY_COLORS[activeTab] ?? "#3b82f6";
 
   return (
     <section id="skills" className="section px-6" style={{ background: "var(--bg-surface)" }}>
@@ -100,7 +95,7 @@ export default function Skills() {
                 <motion.span
                   layoutId="skill-pill"
                   className="absolute inset-0 rounded-lg"
-                  style={{ background: `${accent}20`, border: `1px solid ${accent}40` }}
+                  style={{ background: `${TECH_ACCENT}20`, border: `1px solid ${TECH_ACCENT}40` }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
@@ -117,7 +112,7 @@ export default function Skills() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
+            className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3"
           >
             {active.skills.map((skill, i) => (
               <motion.div
@@ -129,16 +124,10 @@ export default function Skills() {
                 whileHover={{ y: -4, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="glass rounded-xl p-4 flex flex-col items-center gap-3 cursor-default group"
-                style={{ "--accent-color": accent } as React.CSSProperties}
               >
                 {/* Icon */}
-                <div
-                  className="text-2xl transition-colors duration-200"
-                  style={{ color: "var(--text-muted)" }}
-                >
-                  <span className="group-hover:text-current transition-colors" style={{ color: accent }}>
-                    {ICON_MAP[skill.icon] ?? <SiReact />}
-                  </span>
+                <div className="text-2xl text-blue-500 transition-transform duration-200 group-hover:scale-110">
+                  {ICON_MAP[skill.icon] ?? <SiReact />}
                 </div>
                 <span className="text-xs font-medium text-zinc-400 text-center leading-tight">
                   {skill.name}

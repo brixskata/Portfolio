@@ -30,7 +30,7 @@ export default function Certificates() {
               <motion.div
                 key={cert.name}
                 custom={i}
-                variants={rowVariants}
+                variants={rowVariants as unknown as Variants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
@@ -45,7 +45,7 @@ export default function Certificates() {
 
                 {/* Info */}
                 <div className="flex-1 min-w-0">
-                  <p className="text-white font-medium text-sm leading-snug truncate">
+                  <p className="text-white font-medium text-sm leading-snug">
                     {cert.name}
                   </p>
                   <p className="text-zinc-500 text-xs mt-0.5">{cert.issuer}</p>
