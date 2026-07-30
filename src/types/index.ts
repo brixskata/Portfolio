@@ -11,6 +11,12 @@ export interface SkillCategory {
   skills: Skill[];
 }
 
+export interface MobileScreen {
+  image: string;
+  title: string;
+  description: string;
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -19,6 +25,7 @@ export interface Project {
   github?: string;
   live?: string;
   featured?: boolean;
+  mobileShowcase?: MobileScreen[];
 }
 
 export interface Certificate {
