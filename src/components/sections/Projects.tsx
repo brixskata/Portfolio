@@ -94,8 +94,11 @@ function ProjectCard({
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
-              onDragEnd={(e, { offset, velocity }) => {
+              onDragEnd={(event, { offset, velocity }) => {
+                void event;
+
                 const swipe = swipePower(offset.x, velocity.x);
+
                 if (swipe < -swipeConfidenceThreshold) {
                   nextScreen();
                 } else if (swipe > swipeConfidenceThreshold) {
@@ -133,10 +136,10 @@ function ProjectCard({
             </p>
           </div>
         )}
-        
+
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent pointer-events-none" />
-        
+
         {/* Featured badge */}
         {project.featured && (
           <div className="absolute top-3 right-3 z-20">
@@ -188,11 +191,10 @@ function ProjectCard({
                   <button
                     key={idx}
                     onClick={() => setCurrentScreen(idx)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                      idx === currentScreen
-                        ? "bg-blue-500 w-4"
-                        : "bg-zinc-600 hover:bg-zinc-500"
-                    }`}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentScreen
+                      ? "bg-blue-500 w-4"
+                      : "bg-zinc-600 hover:bg-zinc-500"
+                      }`}
                     aria-label={`Go to screen ${idx + 1}`}
                   />
                 ))}
