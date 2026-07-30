@@ -4,7 +4,8 @@ export const projects: Project[] = [
   {
     title: "MikeMadz",
     description:
-      "A full-featured frozen food e-commerce platform with multi-brand product variants, expiry tracking, slide-out cart drawer, verified customer reviews, community Q&A board, and built-in dark mode.",
+      "Developed a full-stack frozen food ordering and inventory management system featuring product management, real-time inventory tracking, secure user authentication, order processing, reporting, and an intuitive shopping experience.",
+    image: "/projectt.png",
     tech: ["PHP", "MySQL", "Bootstrap", "SwiperJS", "FontAwesome"],
     live: "https://mikemadz.com",
     featured: true,

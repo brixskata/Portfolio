@@ -20,7 +20,7 @@ export default function Projects() {
         <SectionHeader
           eyebrow="03 / Projects"
           title="Featured Work"
-          subtitle="Projects I've designed, built, and shipped — end to end."
+          subtitle="Projects that showcase my skills in web, mobile, and full-stack development."
         />
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -118,7 +118,7 @@ export default function Projects() {
                       whileTap={{ scale: 0.96 }}
                       className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-blue-500/10 text-blue-400 hover:bg-blue-500 hover:text-white text-sm font-medium transition-all duration-200 border border-blue-500/20 hover:border-blue-500"
                     >
-                      Live Demo <HiArrowUpRight size={13} />
+                      Visit <HiArrowUpRight size={13} />
                     </motion.a>
                   )}
                 </div>

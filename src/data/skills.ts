@@ -42,7 +42,7 @@ export const skillCategories: SkillCategory[] = [
   {
     label: "AI Tools",
     skills: [
-      { name: "Claude Code", icon: "SiAnthropic" },
+      
       { name: "Cursor", icon: "SiCursor" },
       { name: "ChatGPT", icon: "SiOpenai" },
     ],

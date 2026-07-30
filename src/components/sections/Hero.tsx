@@ -122,21 +122,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <motion.button
-        type="button"
-        onClick={scrollToAbout}
-        aria-label="Scroll to about section"
-        animate={prefersReducedMotion ? undefined : { y: [0, 5, 0] }}
-        transition={
-          prefersReducedMotion
-            ? undefined
-            : { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
-        }
-        className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-1 text-zinc-600 transition-colors hover:text-zinc-400 md:flex"
-      >
-        <span className="text-[10px] font-medium uppercase tracking-[0.2em]">Scroll</span>
-        <HiArrowDown size={17} />
-      </motion.button>
     </section>
   );
 }

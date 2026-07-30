@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
+import { HiArrowUpRight } from "react-icons/hi2";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -78,8 +79,19 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Mobile hamburger */}
-            <div>
+            <div className="flex items-center">
+              <motion.a
+                href="/QUILING%20-%20CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04, y: -1 }}
+                whileTap={{ scale: 0.97 }}
+                className="hidden items-center gap-1.5 rounded-lg border border-blue-500/50 px-3 py-1.5 text-sm font-semibold text-blue-400 transition-colors hover:bg-blue-500/10 md:inline-flex"
+              >
+                View CV <HiArrowUpRight size={13} />
+              </motion.a>
+
+              {/* Mobile hamburger */}
               <button
                 onClick={() => setMenuOpen((o) => !o)}
                 className="md:hidden text-zinc-400 hover:text-white transition-colors p-1"
@@ -118,6 +130,20 @@ export default function Navbar() {
                   </button>
                 </motion.li>
               ))}
+              <motion.li
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: NAV_LINKS.length * 0.05 }}
+              >
+                <a
+                  href="/QUILING%20-%20CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-400"
+                >
+                  View CV <HiArrowUpRight size={13} />
+                </a>
+              </motion.li>
             </ul>
           </motion.div>
         )}
