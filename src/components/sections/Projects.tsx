@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { SiGithub } from "react-icons/si";
 import { HiArrowUpRight, HiXMark } from "react-icons/hi2";
@@ -33,19 +33,19 @@ function ProjectCard({
   const isMobileShowcase = !!project.mobileShowcase && project.mobileShowcase.length > 0;
   const [currentScreen, setCurrentScreen] = useState(0);
 
-  const nextScreen = () => {
+  const nextScreen = useCallback(() => {
     if (project.mobileShowcase) {
       setCurrentScreen((prev) => (prev + 1) % project.mobileShowcase!.length);
     }
-  };
+  }, [project.mobileShowcase]);
 
-  const prevScreen = () => {
+  const prevScreen = useCallback(() => {
     if (project.mobileShowcase) {
       setCurrentScreen(
         (prev) => (prev - 1 + project.mobileShowcase!.length) % project.mobileShowcase!.length
       );
     }
-  };
+  }, [project.mobileShowcase]);
 
   useEffect(() => {
     if (!isMobileShowcase) return;
@@ -55,7 +55,7 @@ function ProjectCard({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isMobileShowcase, project.mobileShowcase]);
+  }, [isMobileShowcase, nextScreen, prevScreen]);
 
   return (
     <motion.article

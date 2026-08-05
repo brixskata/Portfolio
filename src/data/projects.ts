@@ -1,6 +1,25 @@
 import type { Project } from "../types";
 
 export const projects: Project[] = [
+{
+      title: "FitOps Gym Management System",
+    description:
+      "Developed a full-stack gym management system with secure authentication, role-based access control, member management, membership management, and RESTful API integration. Built using React, Laravel, MySQL, and Tailwind CSS, then deployed to a live production environment.",
+    image: "/fitops.png",
+    tech: [
+      "React",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS",
+      "REST API",
+      "Laravel Sanctum",
+      "Spatie Permission",
+      "Hostinger",
+    ],
+    live: "https://fitops.site/",
+    featured: true,
+},
+
   {
     title: "MikeMadz Online Ordering System",
     description:
@@ -39,4 +58,5 @@ export const projects: Project[] = [
       },
     ],
   },
+  
 ];
