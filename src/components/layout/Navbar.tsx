@@ -60,7 +60,7 @@ export default function Navbar() {
               style={{ fontFamily: "var(--font-mono)" }}
             >
               Brix
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mb-0.5 inline-block" />
+             
             </motion.button>
 
             {/* Desktop Links */}

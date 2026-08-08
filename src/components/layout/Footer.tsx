@@ -32,7 +32,7 @@ export default function Footer() {
           className="text-sm text-zinc-500"
           style={{ fontFamily: "var(--font-mono)" }}
         >
-          Brix<span className="text-blue-500">.</span> — Designed & Built by Marion Brix Quiling
+          Brix<span className="text-blue-500"></span> — Designed & Built by Marion Brix Quiling
         </p>
 
         {/* Socials + year */}

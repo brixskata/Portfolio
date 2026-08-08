@@ -95,8 +95,8 @@ export default function About() {
             <div className="grid grid-cols-3 gap-3 pt-2">
               {[
                 { label: "Specialization", value: "Full Stack" },
-                { label: "Mobile Apps", value: "Flutter" },
-                { label: "Backend", value: "Laravel" },
+                { label: "Mobile Development", value: "Flutter" },
+                { label: "Web Development", value: "Laravel" },
               ].map((stat) => (
                 <div
                   key={stat.label}
