@@ -22,9 +22,10 @@ import {
   SiAnthropic,
   SiCursor,
   SiTestinglibrary,
+  SiPython,
 } from "react-icons/si";
 
-import { FaCss3Alt, FaRobot } from "react-icons/fa6";
+import { FaCode, FaCss3Alt, FaJava, FaRobot } from "react-icons/fa6";
 import SectionHeader from "../ui/SectionHeader";
 import { skillCategories } from "../../data/skills";
 
@@ -53,6 +54,9 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   SiCursor: <SiCursor />,
   SiOpenai: <FaRobot />,
   SiTestinglibrary: <SiTestinglibrary />,
+  SiPython: <SiPython />,
+  FaJava: <FaJava />,
+  FaVisualBasic: <FaCode />,
 };
 
 const TECH_ACCENT = "#3b82f6";

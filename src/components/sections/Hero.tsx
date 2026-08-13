@@ -60,7 +60,7 @@ export default function Hero() {
             variants={itemVariants}
             className="mt-3 text-base font-medium text-zinc-400 md:text-zinc-600 sm:text-lg"
           >
-            Full Stack Developer / Mobile Developer
+          Software Engineer | Laravel Developer | Flutter Developer
           </motion.p>
           <motion.p
             variants={itemVariants}
