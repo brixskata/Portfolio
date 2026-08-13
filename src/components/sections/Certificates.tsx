@@ -4,7 +4,7 @@ import { HiArrowUpRight } from "react-icons/hi2";
 import SectionHeader from "../ui/SectionHeader";
 import { certificates } from "../../data/certificates";
 
-const rowVariants = {
+const rowVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: (i: number) => ({
     opacity: 1, x: 0,
@@ -20,7 +20,7 @@ export default function Certificates() {
       <div className="max-w-5xl mx-auto">
         <SectionHeader
           eyebrow="04 / Certificates"
-          title="Certifications"
+          title="Certifications and Achievements"
           subtitle="Verified credentials and completed courses."
         />
 
@@ -30,7 +30,7 @@ export default function Certificates() {
               <motion.div
                 key={cert.name}
                 custom={i}
-                variants={rowVariants as unknown as Variants}
+                variants={rowVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
@@ -45,7 +45,7 @@ export default function Certificates() {
 
                 {/* Info */}
                 <div className="flex-1 min-w-0">
-                  <p className="text-white font-medium text-sm leading-snug">
+                  <p className="text-white font-medium text-sm leading-snug truncate">
                     {cert.name}
                   </p>
                   <p className="text-zinc-500 text-xs mt-0.5">{cert.issuer}</p>

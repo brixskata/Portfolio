@@ -143,7 +143,7 @@ function ProjectCard({
         {/* Featured badge */}
         {project.featured && (
           <div className="absolute top-3 right-3 z-20">
-            <span className="px-2.5 py-1 rounded-md text-xs font-mono bg-blue-500/20 text-blue-400 border border-blue-500/30">
+            <span className="px-2.5 py-1 rounded-md text-xs font-mono bg-blue-600 text-white border border-blue-700 shadow-sm">
               Featured
             </span>
           </div>
