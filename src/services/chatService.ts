@@ -1,4 +1,4 @@
-import type { Message } from "../types/chat";
+import type { ChatApiResponse, Message } from "../types/chat";
 
 export const sendMessageToAPI = async (message: string, history: Message[]): Promise<string> => {
   const response = await fetch("/api/chat", {
@@ -8,7 +8,7 @@ export const sendMessageToAPI = async (message: string, history: Message[]): Pro
     },
     body: JSON.stringify({
       message,
-      history: history.map((msg) => ({
+      history: history.slice(-10).map((msg) => ({
         role: msg.role,
         content: msg.content,
       })),
@@ -20,6 +20,9 @@ export const sendMessageToAPI = async (message: string, history: Message[]): Pro
     throw new Error(errorData.error || "Failed to communicate with AI assistant.");
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as ChatApiResponse;
+  if (!data.text) {
+    throw new Error(data.error || "Something went wrong while contacting the AI assistant.");
+  }
   return data.text;
 };

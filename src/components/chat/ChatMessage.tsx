@@ -12,6 +12,7 @@ export default function ChatMessage({ message }: ChatMessageProps) {
   return (
     <div className={`flex w-full ${isUser ? "justify-end" : "justify-start"} mb-4`}>
       <div
+        aria-live={isUser ? undefined : "polite"}
         className={`max-w-[85%] rounded-2xl px-4 py-3 ${
           isUser
             ? "bg-blue-600 text-white rounded-br-sm"
@@ -19,9 +20,14 @@ export default function ChatMessage({ message }: ChatMessageProps) {
         }`}
       >
         <div className="prose prose-invert prose-sm max-w-none">
-          <ReactMarkdown 
-            remarkPlugins={[remarkGfm]}
-            components={{
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                code: ({ className, children, ...props }) => (
+                  <code className={`${className ?? ""} rounded bg-black/30 px-1 py-0.5 text-[0.85em]`} {...props}>
+                    {children}
+                  </code>
+                ),
               a: (props) => (
                 <a 
                   {...props} 

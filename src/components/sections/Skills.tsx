@@ -3,12 +3,15 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 import {
   SiJavascript,
+  SiTypescript,
   SiPhp,
   SiCplusplus,
   SiSharp,
   SiDart,
   SiHtml5,
   SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
   SiLaravel,
   SiFlutter,
   SiBootstrap,
@@ -23,15 +26,19 @@ import {
   SiCursor,
   SiTestinglibrary,
   SiPython,
+  SiHostinger,
+  SiVercel,
+  SiComposer,
 } from "react-icons/si";
 
-import { FaCode, FaCss3Alt, FaJava, FaRobot } from "react-icons/fa6";
+import { FaCode, FaCss3Alt, FaDatabase, FaJava, FaLock, FaRobot, FaShieldHalved } from "react-icons/fa6";
 import SectionHeader from "../ui/SectionHeader";
 import { skillCategories } from "../../data/skills";
 
 /** Map icon string names → actual icon components */
 const ICON_MAP: Record<string, React.ReactNode> = {
   SiJavascript: <SiJavascript />,
+  SiTypescript: <SiTypescript />,
   SiPhp: <SiPhp />,
   SiCplusplus: <SiCplusplus />,
   SiCsharp: <SiSharp />,
@@ -40,23 +47,31 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   SiHtml5: <SiHtml5 />,
   SiCss3: <FaCss3Alt />,
   SiReact: <SiReact />,
+  SiNextdotjs: <SiNextdotjs />,
+  SiNodedotjs: <SiNodedotjs />,
   SiLaravel: <SiLaravel />,
   SiFlutter: <SiFlutter />,
   SiBootstrap: <SiBootstrap />,
   SiTailwindcss: <SiTailwindcss />,
   SiMysql: <SiMysql />,
   SiMongodb: <SiMongodb />,
+  SiOracle: <FaDatabase />,
   SiGit: <SiGit />,
   SiGithub: <SiGithub />,
   SiPostman: <SiPostman />,
   SiFigma: <SiFigma />,
   SiAnthropic: <SiAnthropic />,
   SiCursor: <SiCursor />,
+  SiHostinger: <SiHostinger />,
+  SiVercel: <SiVercel />,
+  SiComposer: <SiComposer />,
   SiOpenai: <FaRobot />,
   SiTestinglibrary: <SiTestinglibrary />,
   SiPython: <SiPython />,
   FaJava: <FaJava />,
   FaVisualBasic: <FaCode />,
+  FaLock: <FaLock />,
+  FaShieldHalved: <FaShieldHalved />,
 };
 
 const TECH_ACCENT = "#3b82f6";

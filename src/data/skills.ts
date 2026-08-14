@@ -5,6 +5,7 @@ export const skillCategories: SkillCategory[] = [
     label: "Languages",
     skills: [
       { name: "JavaScript", icon: "SiJavascript" },
+      { name: "TypeScript", icon: "SiTypescript" },
       { name: "PHP", icon: "SiPhp" },
       { name: "C++", icon: "SiCplusplus" },
       { name: "C#", icon: "SiCsharp" },
@@ -20,6 +21,8 @@ export const skillCategories: SkillCategory[] = [
     label: "Frameworks",
     skills: [
       { name: "React", icon: "SiReact" },
+      { name: "Next.js", icon: "SiNextdotjs" },
+      { name: "Node.js", icon: "SiNodedotjs" },
       { name: "Laravel", icon: "SiLaravel" },
       { name: "Flutter", icon: "SiFlutter" },
       { name: "Bootstrap", icon: "SiBootstrap" },
@@ -31,6 +34,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "MySQL", icon: "SiMysql" },
       { name: "MongoDB", icon: "SiMongodb" },
+      { name: "Oracle", icon: "SiOracle" },
     ],
   },
   {
@@ -40,6 +44,14 @@ export const skillCategories: SkillCategory[] = [
       { name: "GitHub", icon: "SiGithub" },
       { name: "REST APIs", icon: "SiPostman" },
       { name: "Postman", icon: "SiPostman" },
+      { name: "Composer", icon: "SiComposer" },
+    ],
+  },
+  {
+    label: "Deployment",
+    skills: [
+      { name: "Hostinger", icon: "SiHostinger" },
+      { name: "Vercel", icon: "SiVercel" },
     ],
   },
   {
@@ -54,6 +66,9 @@ export const skillCategories: SkillCategory[] = [
     label: "Concepts",
     skills: [
       { name: "API Integration", icon: "SiPostman" },
+      { name: "REST API Development", icon: "SiPostman" },
+      { name: "Authentication", icon: "FaLock" },
+      { name: "Role-Based Access Control (RBAC)", icon: "FaShieldHalved" },
       { name: "UI/UX Design", icon: "SiFigma" },
       { name: "Quality Assurance", icon: "SiTestinglibrary" },
     ],

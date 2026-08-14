@@ -7,7 +7,7 @@ import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Certificates from "./components/sections/Certificates";
 import Contact from "./components/sections/Contact";
-// import Chatbot from "./components/chat/Chatbot";
+import Chatbot from "./components/chat/Chatbot";
 
 export default function App() {
   return (
@@ -27,7 +27,7 @@ export default function App() {
       </main>
 
       <Footer />
-      {/* <Chatbot /> */}
+      <Chatbot />
     </div>
   );
 }
