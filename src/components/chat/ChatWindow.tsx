@@ -14,11 +14,11 @@ interface ChatWindowProps {
 }
 
 const SUGGESTED_QUESTIONS = [
-  "What technologies does Marion know?",
+  "What do you work with?",
   "Tell me about FitOps.",
-  "Tell me about his internship.",
-  "What role is Marion looking for?",
-  "Why should I hire Marion?",
+  "What did you do during your internship?",
+  "What kind of role are you looking for?",
+  "Why should I hire you?",
 ];
 
 export default function ChatWindow({
@@ -58,7 +58,7 @@ export default function ChatWindow({
   return (
     <motion.section
       role="dialog"
-      aria-label="Brix AI Assistant"
+      aria-label="Chat with Brix"
       aria-modal="false"
       initial={{ opacity: 0, y: 20, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -69,8 +69,8 @@ export default function ChatWindow({
       <header className="flex items-center gap-3 px-4 py-3 border-b border-zinc-800 bg-zinc-900/80">
         <img src="/favicon.png" alt="" className="h-9 w-9 rounded-full object-cover border border-blue-400/40" />
         <div className="min-w-0 flex-1">
-          <h2 className="font-semibold text-white leading-tight">Brix AI Assistant</h2>
-          <p className="text-[11px] text-zinc-400 mt-1 truncate">Ask me about Marion's skills, projects, and experience.</p>
+          <h2 className="font-semibold text-white leading-tight">Chat with Brix</h2>
+          <p className="text-[11px] text-zinc-400 mt-1 truncate">Ask me about my work, projects, and experience.</p>
         </div>
         <div className="flex items-center gap-1 shrink-0">
           <button
@@ -100,7 +100,7 @@ export default function ChatWindow({
           <div className="flex min-h-full flex-col justify-center">
             <div className="mb-5 text-center">
               <img src="/favicon.png" alt="" className="mx-auto mb-3 h-12 w-12 rounded-full border border-blue-400/30" />
-              <p className="text-sm leading-relaxed text-zinc-200">Hi! I'm Brix, Marion's portfolio assistant. Ask me about his skills, projects, internship, or career.</p>
+              <p className="whitespace-pre-line text-sm leading-relaxed text-zinc-200">Hey, I'm Brix. 👋{"\n"}Feel free to ask about my projects, skills, experience, or career.</p>
             </div>
             <div className="space-y-2">
               {SUGGESTED_QUESTIONS.map((question) => (
@@ -131,8 +131,8 @@ export default function ChatWindow({
             value={input}
             onChange={(event) => setInput(event.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask anything about Marion..."
-            aria-label="Message Brix AI Assistant"
+            placeholder="Ask me anything..."
+            aria-label="Message Brix"
             className="min-h-[46px] max-h-32 w-full resize-none bg-transparent px-3 py-3 pr-12 text-sm text-white placeholder-zinc-500 focus:outline-none"
             rows={1}
             disabled={isLoading}
