@@ -9,9 +9,15 @@ export const certificates: Certificate[] = [
   },
   {
     name: "Mr. STI College Fairview 2024",
-    issuer: "Crown Summit Life Insurance Agency",
+    issuer: " STI College Fairview",
     year: "2024",
     url: "/certificates/MR%20STI%20COLLEGE%20FAIRVIEW%202024.pdf",
+  },
+  {
+    name: "SAP Certificate",
+    issuer: "SAP University Alliances",
+    year: "2024",
+    url: "/certificates/QUILING%20-%20SAP.pdf",
   },
   {
     name: "Cloud Fundamentals for IT Support",
