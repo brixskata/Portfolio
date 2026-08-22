@@ -14,10 +14,16 @@ export const certificates: Certificate[] = [
     url: "/certificates/MR%20STI%20COLLEGE%20FAIRVIEW%202024.pdf",
   },
   {
-    name: "SAP Certificate",
+    name: "Introduction to SAP S4HANA",
     issuer: "SAP University Alliances",
     year: "2024",
     url: "/certificates/QUILING%20-%20SAP.pdf",
+  },
+  {
+    name: "Advanced SAP S4HANA",
+    issuer: "SAP University Alliances",
+    year: "2025",
+    url: "/certificates/QUILING%2C%20MARION%20BRIX%20%281%29.pdf",
   },
   {
     name: "Cloud Fundamentals for IT Support",
