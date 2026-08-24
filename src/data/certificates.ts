@@ -22,7 +22,7 @@ export const certificates: Certificate[] = [
   {
     name: "Advanced SAP S4HANA",
     issuer: "SAP University Alliances",
-    year: "2025",
+    year: "2024",
     url: "/certificates/QUILING%2C%20MARION%20BRIX%20%281%29.pdf",
   },
   {
