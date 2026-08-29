@@ -41,10 +41,10 @@ export default function Navbar() {
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-        className="fixed top-2 left-0 right-0 z-50 px-4"
+        className="fixed inset-x-0 top-2 z-50 px-3 md:px-4"
       >
         <nav
-          className={`max-w-5xl mx-auto px-5 py-3 rounded-2xl transition-all duration-300 ${
+          className={`mx-auto w-full min-w-0 max-w-5xl rounded-2xl px-4 py-3 transition-all duration-300 md:px-5 ${
             scrolled
               ? "glass shadow-2xl shadow-black/20"
               : "bg-zinc-950/85 border border-zinc-800/80 backdrop-blur-md"
@@ -112,7 +112,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-4 top-20 z-40 rounded-2xl glass p-6 md:hidden shadow-2xl"
+            className="fixed inset-x-3 top-20 z-40 rounded-2xl glass p-5 shadow-2xl sm:inset-x-4 sm:p-6 md:hidden"
           >
             <ul className="flex flex-col gap-4">
               {NAV_LINKS.map((link, i) => (

@@ -26,10 +26,10 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-zinc-800/60 py-8 px-4">
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mx-auto flex min-w-0 max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row">
         {/* Wordmark */}
         <p
-          className="text-sm text-zinc-500"
+          className="max-w-full break-words text-center text-xs leading-6 text-zinc-500 sm:text-left sm:text-sm"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           Brix<span className="text-blue-500"></span> — Designed & Built by Marion Brix Quiling

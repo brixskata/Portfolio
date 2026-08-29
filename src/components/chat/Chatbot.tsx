@@ -159,7 +159,7 @@ export default function Chatbot() {
         whileTap={{ scale: 0.95 }}
         animate={!isOpen && !reducedMotion ? { boxShadow: ["0 10px 30px rgba(30, 64, 175, 0.28)", "0 10px 34px rgba(59, 130, 246, 0.5)", "0 10px 30px rgba(30, 64, 175, 0.28)"] } : undefined}
         transition={{ duration: 2.8, repeat: isOpen || reducedMotion ? 0 : Infinity, ease: "easeInOut" }}
-        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 h-14 w-14 bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-lg shadow-blue-900/40 z-[100] flex items-center justify-center transition-colors border border-blue-400/40"
+        className="fixed bottom-4 right-4 z-[100] flex h-14 w-14 items-center justify-center rounded-full border border-blue-400/40 bg-blue-600 text-white shadow-lg shadow-blue-900/40 transition-colors hover:bg-blue-500 sm:bottom-6 sm:right-6"
       >
         <img src="/favicon.png" alt="" className="h-8 w-8 rounded-full object-cover" />
         <HiSparkles aria-hidden="true" className="absolute -right-0.5 -top-0.5 text-blue-100" size={14} />
@@ -174,7 +174,7 @@ export default function Chatbot() {
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, x: 0 }}
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 6, x: 8 }}
             transition={{ duration: reducedMotion ? 0 : 0.25, ease: "easeOut" }}
-            className="fixed bottom-[5.5rem] right-5 z-[110] max-w-[calc(100vw-5rem)] rounded-xl border border-zinc-200 bg-white px-4 py-3 text-left text-xs font-medium leading-relaxed text-zinc-800 shadow-xl shadow-black/20 after:absolute after:-bottom-1.5 after:right-5 after:h-3 after:w-3 after:rotate-45 after:border-b after:border-r after:border-zinc-200 after:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 sm:right-6 sm:max-w-[320px]"
+            className="fixed bottom-[5.25rem] right-4 z-[110] max-w-[calc(100vw-4.5rem)] rounded-xl border border-zinc-200 bg-white px-4 py-3 text-left text-xs font-medium leading-relaxed text-zinc-800 shadow-xl shadow-black/20 after:absolute after:-bottom-1.5 after:right-5 after:h-3 after:w-3 after:rotate-45 after:border-b after:border-r after:border-zinc-200 after:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 sm:right-6 sm:max-w-[320px]"
             aria-label="Open Chat with Brix"
           >
             {attentionMessage}

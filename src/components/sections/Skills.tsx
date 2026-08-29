@@ -1,160 +1,42 @@
 import { useState } from "react";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
-
-import {
-  SiJavascript,
-  SiTypescript,
-  SiPhp,
-  SiCplusplus,
-  SiSharp,
-  SiDart,
-  SiHtml5,
-  SiReact,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiLaravel,
-  SiFlutter,
-  SiBootstrap,
-  SiTailwindcss,
-  SiMysql,
-  SiMongodb,
-  SiGit,
-  SiGithub,
-  SiPostman,
-  SiFigma,
-  SiAnthropic,
-  SiCursor,
-  SiTestinglibrary,
-  SiPython,
-  SiHostinger,
-  SiVercel,
-  SiComposer,
-} from "react-icons/si";
-
-import { FaCode, FaCss3Alt, FaDatabase, FaJava, FaLock, FaRobot, FaShieldHalved } from "react-icons/fa6";
-import SectionHeader from "../ui/SectionHeader";
+import { motion } from "framer-motion";
 import { skillCategories } from "../../data/skills";
 
-/** Map icon string names → actual icon components */
-const ICON_MAP: Record<string, React.ReactNode> = {
-  SiJavascript: <SiJavascript />,
-  SiTypescript: <SiTypescript />,
-  SiPhp: <SiPhp />,
-  SiCplusplus: <SiCplusplus />,
-  SiCsharp: <SiSharp />,
-  SiSharp: <SiSharp />,
-  SiDart: <SiDart />,
-  SiHtml5: <SiHtml5 />,
-  SiCss3: <FaCss3Alt />,
-  SiReact: <SiReact />,
-  SiNextdotjs: <SiNextdotjs />,
-  SiNodedotjs: <SiNodedotjs />,
-  SiLaravel: <SiLaravel />,
-  SiFlutter: <SiFlutter />,
-  SiBootstrap: <SiBootstrap />,
-  SiTailwindcss: <SiTailwindcss />,
-  SiMysql: <SiMysql />,
-  SiMongodb: <SiMongodb />,
-  SiOracle: <FaDatabase />,
-  SiGit: <SiGit />,
-  SiGithub: <SiGithub />,
-  SiPostman: <SiPostman />,
-  SiFigma: <SiFigma />,
-  SiAnthropic: <SiAnthropic />,
-  SiCursor: <SiCursor />,
-  SiHostinger: <SiHostinger />,
-  SiVercel: <SiVercel />,
-  SiComposer: <SiComposer />,
-  SiOpenai: <FaRobot />,
-  SiTestinglibrary: <SiTestinglibrary />,
-  SiPython: <SiPython />,
-  FaJava: <FaJava />,
-  FaVisualBasic: <FaCode />,
-  FaLock: <FaLock />,
-  FaShieldHalved: <FaShieldHalved />,
-};
-
-const TECH_ACCENT = "#3b82f6";
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: (i: number) => ({
-    opacity: 1, y: 0,
-    transition: { delay: i * 0.07, duration: 0.5, ease: [0.25, 0.4, 0.25, 1] },
-  }),
+const capabilityCopy: Record<string, string> = {
+  Languages: "The raw materials I use to model problems and make ideas executable.",
+  Frameworks: "The structures I reach for when an interface needs to feel clear and a system needs to stay maintainable.",
+  Databases: "Where product information lives, connects, and remains useful over time.",
+  Tools: "The everyday layer that keeps development collaborative, testable, and moving.",
+  Deployment: "Getting finished work from a local environment into the hands of real users.",
+  "AI Tools": "Assistive tools I use to explore, iterate, and shorten the distance from thought to prototype.",
+  Concepts: "The practices underneath the interface: structure, access, quality, and care.",
 };
 
 export default function Skills() {
   const [activeTab, setActiveTab] = useState(skillCategories[0].label);
-  const active = skillCategories.find((c) => c.label === activeTab)!;
+  const active = skillCategories.find((category) => category.label === activeTab) ?? skillCategories[0];
 
   return (
-    <section id="skills" className="section px-6" style={{ background: "var(--bg-surface)" }}>
-      <div className="max-w-5xl mx-auto">
-        <SectionHeader
-          eyebrow="02 / Skills"
-          title="Tech Stack"
-          subtitle="The languages, frameworks, and tools I work with."
-        />
-
-        {/* Tab bar */}
-        <div className="relative flex flex-wrap gap-2 mb-10">
-          {skillCategories.map((cat) => (
-            <button
-              key={cat.label}
-              onClick={() => setActiveTab(cat.label)}
-              className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                activeTab === cat.label
-                  ? "text-white"
-                  : "text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              {/* Animated background pill */}
-              {activeTab === cat.label && (
-                <motion.span
-                  layoutId="skill-pill"
-                  className="absolute inset-0 rounded-lg"
-                  style={{ background: `${TECH_ACCENT}20`, border: `1px solid ${TECH_ACCENT}40` }}
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{cat.label}</span>
-            </button>
-          ))}
+    <section id="skills" className="section px-4 md:px-6" style={{ background: "var(--bg-surface)" }}>
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-16 grid gap-6 border-b border-zinc-800 pb-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+          <div><p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-blue-400">02 / Practice</p><h2 className="text-4xl font-semibold tracking-[-0.045em] text-white md:text-6xl">How I work.</h2></div>
+          <p className="max-w-lg text-base leading-8 text-zinc-500">A practical stack is more than a list of logos. These are the tools and ideas I combine to make software useful, understandable, and ready to grow.</p>
         </div>
 
-        {/* Skill cards */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3"
-          >
-            {active.skills.map((skill, i) => (
-              <motion.div
-                key={skill.name}
-                custom={i}
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                whileHover={{ y: -4, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="glass rounded-xl p-4 flex flex-col items-center gap-3 cursor-default group"
-              >
-                {/* Icon */}
-                <div className="text-2xl text-blue-500 transition-transform duration-200 group-hover:scale-110">
-                  {ICON_MAP[skill.icon] ?? <SiReact />}
-                </div>
-                <span className="text-xs font-medium text-zinc-400 text-center leading-tight">
-                  {skill.name}
-                </span>
-              </motion.div>
-            ))}
+        <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-24">
+          <nav aria-label="Skill categories" className="flex flex-wrap gap-2 border-zinc-800 pb-1 md:block md:border-t">
+            {skillCategories.map((category, index) => <button key={category.label} type="button" onClick={() => setActiveTab(category.label)} className={`flex min-w-0 max-w-full items-center gap-2 border border-zinc-800 px-3 py-2 text-left transition-colors md:w-full md:justify-between md:border-x-0 md:border-t-0 md:px-0 md:py-4 ${activeTab === category.label ? "border-blue-500/40 text-white md:border-zinc-800" : "text-zinc-600 hover:text-zinc-300"}`}><span className="flex min-w-0 items-center gap-3"><span className="font-mono text-[11px] text-zinc-700">{String(index + 1).padStart(2, "0")}</span><span className="truncate text-xs font-medium md:text-sm">{category.label}</span></span><span className={`hidden h-1.5 w-1.5 rounded-full transition-colors md:block ${activeTab === category.label ? "bg-blue-400" : "bg-zinc-800"}`} aria-hidden="true" /></button>)}
+          </nav>
+
+          <motion.div key={active.label} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+            <div className="mb-10 flex min-w-0 items-start justify-between gap-4"><div className="min-w-0"><p className="font-mono text-xs uppercase tracking-[0.18em] text-blue-400">Selected discipline</p><h3 className="mt-3 break-words text-3xl font-medium tracking-tight text-white">{active.label}</h3></div><span className="shrink-0 font-mono text-xs text-zinc-600">{String(active.skills.length).padStart(2, "0")} tools</span></div>
+            <p className="mb-10 max-w-xl text-lg leading-8 text-zinc-400">{capabilityCopy[active.label]}</p>
+            <div className="grid border-t border-zinc-800 sm:grid-cols-2">
+              {active.skills.map((skill, index) => <div key={skill.name} className="flex min-w-0 items-center gap-4 border-b border-zinc-800/80 py-4 sm:even:border-l sm:even:pl-6"><span className="shrink-0 font-mono text-[11px] text-zinc-700">{String(index + 1).padStart(2, "0")}</span><span className="min-w-0 break-words text-sm text-zinc-300">{skill.name}</span></div>)}
+            </div>
           </motion.div>
-        </AnimatePresence>
+        </div>
       </div>
     </section>
   );

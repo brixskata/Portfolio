@@ -17,6 +17,26 @@ export interface MobileScreen {
   description: string;
 }
 
+export interface ProjectScreenshot {
+  src: string;
+  title?: string;
+  description?: string;
+}
+
+export interface ProjectMedia {
+  hero?: string;
+  video?: string;
+  screenshots?: ProjectScreenshot[];
+}
+
+export interface ProjectCaseStudyContent {
+  overview?: string;
+  role?: string;
+  features?: string[];
+  contributions?: string[];
+  challenges?: string[];
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -26,6 +46,9 @@ export interface Project {
   live?: string;
   featured?: boolean;
   mobileShowcase?: MobileScreen[];
+  id: string;
+  media?: ProjectMedia;
+  caseStudy?: ProjectCaseStudyContent;
 }
 
 export interface Certificate {
