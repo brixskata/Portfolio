@@ -41,7 +41,7 @@ export default function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
 
       <main className="mx-auto max-w-5xl px-6 pb-20 pt-32 sm:pt-40">
         <motion.a
-          href={`/#project-${project.id}`}
+          href="/#projects"
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-white"

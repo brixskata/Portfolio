@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ScrollProgress from "./components/ui/ScrollProgress";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -19,6 +20,17 @@ function getProjectFromPathname() {
 
 export default function App() {
   const project = getProjectFromPathname();
+
+  useEffect(() => {
+    if (project || !window.location.hash) return;
+
+    const targetId = decodeURIComponent(window.location.hash.slice(1));
+    const frameId = window.requestAnimationFrame(() => {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: "auto", block: "start" });
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [project]);
 
   if (project) {
     return <ProjectCaseStudy project={project} />;

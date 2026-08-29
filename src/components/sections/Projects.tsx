@@ -134,7 +134,7 @@ function ProjectCard({
 
 export default function Projects() {
   return (
-    <section id="projects" className="section px-4 md:px-6">
+    <section id="projects" className="section scroll-mt-28 px-4 md:px-6">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 flex items-end justify-between gap-8 border-b border-zinc-800 pb-8"><div><p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-blue-400">03 / Work</p><h2 className="text-4xl font-semibold tracking-[-0.045em] text-white md:text-6xl">Things I&apos;ve built.</h2></div><p className="hidden max-w-xs text-right text-sm leading-relaxed text-zinc-500 md:block">Software shaped around actual people, processes, and problems.</p></div>
 
