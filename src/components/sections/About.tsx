@@ -16,7 +16,7 @@ export default function About() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-20 flex items-end justify-between gap-8 border-b border-zinc-800 pb-6">
           <div><p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-blue-400">01 / About</p><h2 className="max-w-xl text-4xl font-semibold tracking-[-0.045em] text-white md:text-6xl">Building with intent.</h2></div>
-          <p className="hidden max-w-xs text-right text-sm leading-relaxed text-zinc-500 md:block">A developer’s notebook — the people, systems, and questions behind the work.</p>
+          <p className="hidden max-w-xs text-right text-sm leading-relaxed text-zinc-500 md:block">A developer’s notebook. the people, systems, and questions behind the work.</p>
         </div>
         <div className="grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-24">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.7 }}>
