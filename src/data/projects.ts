@@ -50,6 +50,11 @@ export const projects: Project[] = [
     featured: true,
     media: {
       hero: "/projectt.png",
+      screenshots: [
+        { src: "/mikemadzadmin.png", title: "Admin Dashboard", description: "MikeMadz management interface for products and orders." },
+        { src: "/mikemadzcustomer.png", title: "Customer Storefront", description: "MikeMadz customer-facing ordering experience." },
+        { src: "/mikemadzcustomer1.png", title: "Customer View", description: "Additional view of the MikeMadz ordering experience." },
+      ],
     },
     caseStudy: {
       overview: "A full-stack online ordering and inventory management system developed for a frozen food business.",
