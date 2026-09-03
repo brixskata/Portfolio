@@ -52,8 +52,8 @@ export const projects: Project[] = [
       hero: "/projectt.png",
       screenshots: [
         { src: "/mikemadzadmin.png", title: "Admin Dashboard", description: "MikeMadz management interface for products and orders." },
-        { src: "/mikemadzcustomer.png", title: "Customer Storefront", description: "MikeMadz customer-facing ordering experience." },
-        { src: "/mikemadzcustomer1.png", title: "Customer View", description: "Additional view of the MikeMadz ordering experience." },
+        { src: "/mikemadzcustomer.png", title: "Customer Product List", description: "MikeMadz customer-facing ordering experience." },
+        { src: "/mikemadzcustomer1.png", title: "Customer Order Tracking", description: "Additional view of the MikeMadz ordering experience." },
       ],
     },
     caseStudy: {
