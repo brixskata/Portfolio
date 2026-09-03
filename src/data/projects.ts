@@ -21,6 +21,10 @@ export const projects: Project[] = [
     featured: true,
     media: {
       hero: "/fitops.png",
+      screenshots: [
+        { src: "/fitopsadmin.png", title: "Admin Dashboard", description: "FitOps management interface for gym operations." },
+        { src: "/fitopscustomer.png", title: "Customer View", description: "FitOps member-facing experience." },
+      ],
     },
     caseStudy: {
       overview: "A full-stack gym management system for managing gym members and memberships through a secure, role-aware application.",
