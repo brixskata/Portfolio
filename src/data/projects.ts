@@ -51,8 +51,8 @@ export const projects: Project[] = [
     media: {
       hero: "/projectt.png",
       screenshots: [
-        { src: "/mikemadzadmin.png", title: "Admin Dashboard", description: "MikeMadz management interface for products and orders." },
-        { src: "/mikemadzadmin1.png", title: "Admin View", description: "Additional MikeMadz management interface." },
+        { src: "/mikemadzadmin.png", title: "Admin Dashboard", description: "MikeMadz admin dashboard for Business Intelligence." },
+        { src: "/mikemadzadmin1.png", title: "Admin Restocking Module", description: "Additional MikeMadz restocking management." },
         { src: "/mikemadzcustomer.png", title: "Customer Product List", description: "MikeMadz customer-facing ordering experience." },
         { src: "/mikemadzcustomer1.png", title: "Customer Order Tracking", description: "Additional view of the MikeMadz ordering experience." },
       ],
